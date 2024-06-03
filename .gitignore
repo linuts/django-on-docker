@@ -1,0 +1,38 @@
+# macOS system files
+.DS_Store
+
+# Python virtual environment
+app/env/
+
+# Django static files
+staticfiles/
+
+# Django media files
+mediafiles/
+
+# Django database
+db.sqlite3
+
+# Log files
+*.log
+
+# Environment variables
+#.env
+#.env.*
+
+# IDE and editor files
+.vscode/
+.idea/
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+# Miscellaneous
+*.bak
+*.swp
+*.tmp
+*.temp
+*.old
+*~
+django-on-docker.code-workspace
