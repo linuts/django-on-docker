@@ -1,5 +1,8 @@
 
-## Setting Up a Virtual Environment
+## Setup ENV Variables
+Review values in `.env.dev`, `.env.prod`, `.env.prod-db`. Be sure to change sensitive variables for your project.
+
+## Setting up a Virtual Environment
 
 To set up a virtual environment for this project, navigate to the `app` directory and run the following commands:
 
