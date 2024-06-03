@@ -25,6 +25,7 @@ Shut down the containers and remove the volumes, build and start the containers 
 ```bash
 docker-compose -f docker-compose.prod.yml down -v
 docker-compose -f docker-compose.prod.yml up -d --build
+docker image prune -a
 ```
 
 ## How to prep for development
@@ -34,6 +35,7 @@ Shut down the containers and remove the volumes, build and start the containers 
 ```bash
 docker-compose -f docker-compose.yml down -v
 docker-compose -f docker-compose.yml up -d --build
+docker image prune -a
 ```
 
 ## How to start and prep the server after changes

@@ -35,4 +35,3 @@ __pycache__/
 *.temp
 *.old
 *~
-django-on-docker.code-workspace
