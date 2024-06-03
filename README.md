@@ -14,6 +14,7 @@ cd app
 python3 -m venv env
 source env/bin/activate
 pip install django
+cd ..
 ```
 
 Don't forget to reconnect using `source env/bin/activate` when reopening the project!
