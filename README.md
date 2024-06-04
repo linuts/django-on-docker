@@ -24,16 +24,10 @@ Don't forget to reconnect using `source env/bin/activate` when reopening the pro
 Shut down the containers and remove the volumes, build and start the containers in development mode:
 
 ```bash
-# Create the server and start it
-docker compose -f compose.dev.yml down -v
-docker compose -f compose.dev.yml up -d --build
-docker image prune -a
+# Create/update the server and start it
+bash ./run.dev.sh
 
-# Apply database migrations, collect and clear static files:
-docker compose -f compose.dev.yml exec web python manage.py migrate --noinput
-docker compose -f compose.dev.yml exec web python manage.py collectstatic --no-input --clear
-
-# Set super admin user
+# Set super admin user on first run
 docker compose -f compose.dev.yml exec web python manage.py createsuperuser
 ```
 
@@ -45,7 +39,7 @@ Shut down the containers and remove the volumes, build and start the containers 
 # Create the server and start it
 docker compose -f compose.prod.yml down -v
 docker compose -f compose.prod.yml up -d --build
-docker image prune -a
+docker image prune -a --noinput
 
 # Apply database migrations, collect and clear static files:
 docker compose -f compose.prod.yml exec web python manage.py migrate --noinput
