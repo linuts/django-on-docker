@@ -25,16 +25,16 @@ Shut down the containers and remove the volumes, build and start the containers 
 
 ```bash
 # Create the server and start it
-docker compose -f docker-compose.yml down -v
-docker compose -f docker-compose.yml up -d --build
+docker compose -f compose.dev.yml down -v
+docker compose -f compose.dev.yml up -d --build
 docker image prune -a
 
 # Apply database migrations, collect and clear static files:
-docker compose -f docker-compose.yml exec web python manage.py migrate --noinput
-docker compose -f docker-compose.yml exec web python manage.py collectstatic --no-input --clear
+docker compose -f compose.dev.yml exec web python manage.py migrate --noinput
+docker compose -f compose.dev.yml exec web python manage.py collectstatic --no-input --clear
 
 # Set super admin user
-docker compose -f docker-compose.yml exec web python manage.py createsuperuser
+docker compose -f compose.dev.yml exec web python manage.py createsuperuser
 ```
 
 ## How to prep for production
@@ -43,14 +43,14 @@ Shut down the containers and remove the volumes, build and start the containers 
 
 ```bash
 # Create the server and start it
-docker compose -f docker-compose.prod.yml down -v
-docker compose -f docker-compose.prod.yml up -d --build
+docker compose -f compose.prod.yml down -v
+docker compose -f compose.prod.yml up -d --build
 docker image prune -a
 
 # Apply database migrations, collect and clear static files:
-docker compose -f docker-compose.prod.yml exec web python manage.py migrate --noinput
-docker compose -f docker-compose.prod.yml exec web python manage.py collectstatic --no-input --clear
+docker compose -f compose.prod.yml exec web python manage.py migrate --noinput
+docker compose -f compose.prod.yml exec web python manage.py collectstatic --no-input --clear
 
 # Set super admin user
-docker compose -f docker-compose.prod.yml exec web python manage.py createsuperuser
+docker compose -f compose.prod.yml exec web python manage.py createsuperuser
 ```
